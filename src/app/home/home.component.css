@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#fileChooser {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+}
+
+#imageFile {
+    width: 500px;
+}
