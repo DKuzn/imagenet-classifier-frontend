@@ -20,8 +20,10 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "@types/ua-parser-js": "^0.7.39",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "ua-parser-js": "^1.0.37",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {

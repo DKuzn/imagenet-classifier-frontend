@@ -2,5 +2,5 @@
     <input type="file" id="fileChooser" accept="image/jpeg,image/png" (change)="onFileChange($event)">
     <img id="imageFile"/>
     <button mat-button (click)="onButtonChooseFileClick()">Open file</button>
-    <button mat-button>Upload</button>
+    <button mat-button (click)="onButtonSendImageClick()">Upload</button>
 </div>
