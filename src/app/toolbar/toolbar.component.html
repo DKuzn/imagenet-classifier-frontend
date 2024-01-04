@@ -1,9 +1,13 @@
 <mat-toolbar>
     <div>ImageNet Classifier</div>
-    <button mat-button>
+    <button routerLink="/home" mat-button>
         Home
     </button>
-    <button mat-button>
+    <button routerLink="/profile" mat-button>
         Profile
     </button>
 </mat-toolbar>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
