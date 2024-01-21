@@ -1,6 +1,7 @@
 <div class="container">
     <input type="file" id="fileChooser" accept="image/jpeg,image/png" (change)="onFileChange($event)">
     <img id="imageFile"/>
-    <button mat-button (click)="onButtonChooseFileClick()">Open file</button>
-    <button mat-button (click)="onButtonSendImageClick()">Upload</button>
+    <button mat-raised-button (click)="onButtonChooseFileClick()" [disabled]="isNotAuth()">Open file</button>
+    <button mat-raised-button (click)="onButtonSendImageClick()" [disabled]="isNotAuth()">Upload</button>
+    <mat-list id="result"></mat-list>
 </div>
