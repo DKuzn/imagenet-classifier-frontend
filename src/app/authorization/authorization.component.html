@@ -1,0 +1,20 @@
+<div class="container">
+    <form>
+        <mat-form-field class="example-full-width">
+            <mat-label>Login</mat-label>
+            <input id="loginInput" matInput placeholder="johndoe">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input id="passwordInput" matInput type="password" placeholder="password">
+        </mat-form-field>
+
+        <div class="container">
+            <button mat-button (click)="onLogInButtonClick()">Log In</button>
+        </div>
+        <div class="container">
+            <a mat-button color="accent" href="profile/signup">Sign Up</a>
+        </div>
+    </form>
+</div>
