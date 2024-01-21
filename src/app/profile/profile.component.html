@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<router-outlet></router-outlet>
+
+<div class="container">
+    <div [hidden]="isAuth()" class="container">
+        <a mat-button href="/profile/auth">Need to Log In</a>
+    </div>
+    <div [hidden]="isNotAuth()" class="container">
+        <div class="container">
+            <button mat-raised-button color="primary" (click)="getPredictions()">My Predictions</button>
+            <button mat-stroked-button color="warn" (click)="logOut()">Log Out</button>
+        </div>
+        <div id="preds" *ngIf="this.predictions.length > 0">
+            <app-prediction 
+                *ngFor="let pred of predictions"
+                [image]="'data:image/png;base64, ' + pred.image"
+                [prediction]="pred.predictions[0].class_name">
+            </app-prediction>
+        </div>
+    </div>
+</div>
