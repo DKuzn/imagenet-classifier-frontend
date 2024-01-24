@@ -13,7 +13,9 @@
             <app-prediction 
                 *ngFor="let pred of predictions"
                 [image]="'data:image/png;base64, ' + pred.image"
-                [prediction]="pred.predictions[0].class_name">
+                [prediction]="pred.predictions[0].class_name"
+                [datetime]="pred.datetime"
+                [location]="pred.location">
             </app-prediction>
         </div>
     </div>

@@ -59,9 +59,6 @@ export class ProfileComponent {
 
     let predictionsResponse: PredictionResponse = await response.json();
     this.predictions = predictionsResponse.predictions;
-
-    // let predsElement: any = document.getElementById("preds");
-    console.log(this.predictions);
   }
 }
 
