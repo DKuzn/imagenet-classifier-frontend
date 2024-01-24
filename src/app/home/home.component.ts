@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { AuthService } from '../auth.service';
 import { LocationService } from '../location.service';
 import { UaparserService } from '../uaparser.service';
+import { PredictionComponent } from '../prediction/prediction.component';
 
 @Component({
   selector: 'app-home',
@@ -16,12 +18,16 @@ import { UaparserService } from '../uaparser.service';
     MatInputModule,
     MatButtonModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    PredictionComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  public result: ImageClass[] = [];
+
   constructor(private uaparserService: UaparserService, private locationService: LocationService, private auth: AuthService) { }
 
   isNotAuth = () => {
@@ -48,8 +54,6 @@ export class HomeComponent {
 
   onButtonSendImageClick = async () => {
     let sourceFrame: any = document.getElementById("imageFile");
-    let resultField: any = document.getElementById("result");
-    resultField.innerHTML = '';
 
     let data = this.uaparserService.getAllData();
     let loc: any = await this.locationService.getCurrentLocation();
@@ -77,13 +81,7 @@ export class HomeComponent {
     });
 
     let classificationResponse: ClassificationResponse = await response.json();
-    let classes = classificationResponse.classes;
-
-    for (let cls = 0; cls < classes.length; cls++) {
-      let className = document.createElement("mat-list-item");
-      className.textContent = classes[cls].class_name;
-      resultField.appendChild(className);
-    }
+    this.result = classificationResponse.classes;
   }
 }
 

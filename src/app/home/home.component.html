@@ -3,5 +3,10 @@
     <img id="imageFile"/>
     <button mat-raised-button (click)="onButtonChooseFileClick()" [disabled]="isNotAuth()">Open file</button>
     <button mat-raised-button (click)="onButtonSendImageClick()" [disabled]="isNotAuth()">Upload</button>
-    <mat-list id="result"></mat-list>
+    <div id="result" *ngIf="this.result.length > 0">
+        <app-prediction 
+            *ngFor="let pred of result"
+            [prediction]="pred.class_name">
+        </app-prediction>
+    </div>
 </div>
