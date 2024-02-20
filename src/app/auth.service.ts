@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class AuthService {
     this.logOut();
     let auth_string: string = `${login}:${password}`;
 
-    let response: Response = await fetch("http://localhost:8000/data/me", {
+    let response: Response = await fetch(`${environment.apiUrl}/data/me`, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -61,7 +62,7 @@ export class AuthService {
       password: password
     }
 
-    let response: Response = await fetch("http://localhost:8000/data/user", {
+    let response: Response = await fetch(`${environment.apiUrl}/data/user`, {
       method: "POST",
       mode: "cors",
       headers: {

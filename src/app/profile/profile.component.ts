@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { environment } from '../../environments/environment';
 import { AuthService } from '../auth.service';
 import { AuthorizationComponent } from '../authorization/authorization.component';
 import { PredictionComponent } from '../prediction/prediction.component';
@@ -47,7 +48,7 @@ export class ProfileComponent {
   getPredictions = async () => {
     this.predictions = [];
 
-    let response: Response = await fetch("http://localhost:8000/data/prediction", {
+    let response: Response = await fetch(`${environment.apiUrl}/data/prediction`, {
       method: "GET",
       mode: "cors",
       headers: {

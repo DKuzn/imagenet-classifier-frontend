@@ -5,10 +5,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { environment } from '../../environments/environment';
 import { AuthService } from '../auth.service';
 import { LocationService } from '../location.service';
-import { UaparserService } from '../uaparser.service';
 import { PredictionComponent } from '../prediction/prediction.component';
+import { UaparserService } from '../uaparser.service';
 
 @Component({
   selector: 'app-home',
@@ -69,7 +70,7 @@ export class HomeComponent {
 
     let body = JSON.stringify(result);
 
-    let response: any = await fetch("http://localhost:8000/classify", {
+    let response: any = await fetch(`${environment.apiUrl}/classify`, {
       method: "POST",
       mode: "cors", // no-cors, *cors, same-origin
       headers: {
