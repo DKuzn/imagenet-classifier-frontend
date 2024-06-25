@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "docker": "ng build --configuration docker",
+    "test": "ng test",
+    "serve": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +23,9 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@types/ua-parser-js": "^0.7.39",
+    "express": "^4.19.2",
     "rxjs": "~7.8.0",
+    "serve-static": "^1.15.0",
     "tslib": "^2.3.0",
     "ua-parser-js": "^1.0.37",
     "zone.js": "~0.14.2"
